@@ -123,9 +123,8 @@ app.UseAuthorization();
 //    endpoints.MapControllers();
 //});
 
-
+//This is git text;
 app.MapControllers();
 // π”√øÁ”Ú≤ﬂ¬‘
 app.UseCors("CorsPolicy");
-
 app.Run();
