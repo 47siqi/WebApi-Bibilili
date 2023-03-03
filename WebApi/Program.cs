@@ -16,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 //builder.Services.AddControllers();
-//ÉèÖÃJSON·µ»ØÈÕÆÚ¸ñÊ½
+//è®¾ç½®JSONè¿”å›æ—¥æœŸæ ¼å¼
 builder.Services.AddControllers().AddNewtonsoftJson(Options => 
 {
     Options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
@@ -25,27 +25,27 @@ builder.Services.AddControllers().AddNewtonsoftJson(Options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//×¢²á»º´æ·şÎñ
+//æ³¨å†Œç¼“å­˜æœåŠ¡
 builder.Services.AddMemoryCache();
 
-//Ìí¼Ó¿çÓò²ßÂÔ
+//æ·»åŠ è·¨åŸŸç­–ç•¥
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", opt => opt.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().WithExposedHeaders("X-Pagination"));
 });
-//×¢²áÈÕÖ¾
+//æ³¨å†Œæ—¥å¿—
 builder.Logging.AddLog4Net("Config/log4net.Config");
-//×¢²áAutomapper
+//æ³¨å†ŒAutomapper
 builder.Services.AddAutoMapper(typeof(AutoMapperConfigs));
-//×¢²áJWT
+//æ³¨å†ŒJWT
 builder.Services.Configure<JWTTokenOptions>(builder.Configuration.GetSection("JWTTokenOptions"));
 
-//×¢²áservice²ãµÄ·şÎñ
+//æ³¨å†Œserviceå±‚çš„æœåŠ¡
 //builder.Services.AddTransient<IFlowerService, FlowerService>();
 //builder.Services.AddTransient<IUserService, UserService>();
 //builder.Services.AddTransient<IOrderService, OrderService>();
 //builder.Services.AddTransient<ICustomJWTService, CustomJWTService>();
-//Í¨¹ıAutofac×¢Èë
+//é€šè¿‡Autofacæ³¨å…¥
 builder.Host
     .UseServiceProviderFactory(new AutofacServiceProviderFactory())
     .ConfigureContainer<ContainerBuilder>(builder =>
@@ -53,30 +53,30 @@ builder.Host
         builder.RegisterModule(new AutofacModuleRegister());
     });
 
-//jwtĞ£Ñé
+//jwtæ ¡éªŒ
 {
-    //Ôö¼Ó¼øÈ¨Âß¼­
+    //å¢åŠ é‰´æƒé€»è¾‘
     JWTTokenOptions tokenOptions = new JWTTokenOptions();
     builder.Configuration.Bind("JWTTokenOptions", tokenOptions);
     builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)//Scheme
-     .AddJwtBearer(options =>  //ÕâÀïÊÇÅäÖÃµÄ¼øÈ¨µÄÂß¼­
+     .AddJwtBearer(options =>  //è¿™é‡Œæ˜¯é…ç½®çš„é‰´æƒçš„é€»è¾‘
      {
          options.TokenValidationParameters = new TokenValidationParameters
          {
-             //JWTÓĞÒ»Ğ©Ä¬ÈÏµÄÊôĞÔ£¬¾ÍÊÇ¸ø¼øÈ¨Ê±¾Í¿ÉÒÔÉ¸Ñ¡ÁË
-             ValidateIssuer = true,//ÊÇ·ñÑéÖ¤Issuer
-             ValidateAudience = true,//ÊÇ·ñÑéÖ¤Audience
-             ValidateLifetime = true,//ÊÇ·ñÑéÖ¤Ê§Ğ§Ê±¼ä
-             ValidateIssuerSigningKey = true,//ÊÇ·ñÑéÖ¤SecurityKey
+             //JWTæœ‰ä¸€äº›é»˜è®¤çš„å±æ€§ï¼Œå°±æ˜¯ç»™é‰´æƒæ—¶å°±å¯ä»¥ç­›é€‰äº†
+             ValidateIssuer = true,//æ˜¯å¦éªŒè¯Issuer
+             ValidateAudience = true,//æ˜¯å¦éªŒè¯Audience
+             ValidateLifetime = true,//æ˜¯å¦éªŒè¯å¤±æ•ˆæ—¶é—´
+             ValidateIssuerSigningKey = true,//æ˜¯å¦éªŒè¯SecurityKey
              ValidAudience = tokenOptions.Audience,//
-             ValidIssuer = tokenOptions.Issuer,//Issuer£¬ÕâÁ½ÏîºÍÇ°ÃæÇ©·¢jwtµÄÉèÖÃÒ»ÖÂ
-             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenOptions.SecurityKey))//ÄÃµ½SecurityKey 
+             ValidIssuer = tokenOptions.Issuer,//Issuerï¼Œè¿™ä¸¤é¡¹å’Œå‰é¢ç­¾å‘jwtçš„è®¾ç½®ä¸€è‡´
+             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenOptions.SecurityKey))//æ‹¿åˆ°SecurityKey 
          };
      });
 }
 
-//ÅäÖÃCORS£¬´¦Àí¿çÓòÎÊÌâ
-//string[] urls = new[] { "http://localhost:8080/" };  //ÔÊĞí·ÃÎÊºó¶Ë½Ó¿ÚµÄÇ°¶ËÓòÃû
+//é…ç½®CORSï¼Œå¤„ç†è·¨åŸŸé—®é¢˜
+//string[] urls = new[] { "http://localhost:8080/" };  //å…è®¸è®¿é—®åç«¯æ¥å£çš„å‰ç«¯åŸŸå
 
 //builder.Services.AddCors(options =>
 //options.AddDefaultPolicy(builder =>
@@ -90,8 +90,8 @@ builder.Host
 //    options.AddPolicy("cors", builder =>
 //    {
 //        builder.WithMethods("GET", "POST", "HEAD", "PUT", "DELETE", "OPTIONS")
-//    //.AllowCredentials()//Ö¸¶¨´¦Àícookie
-//    .AllowAnyOrigin(); //ÔÊĞíÈÎºÎÀ´Ô´µÄÖ÷»ú·ÃÎÊ
+//    //.AllowCredentials()//æŒ‡å®šå¤„ç†cookie
+//    .AllowAnyOrigin(); //å…è®¸ä»»ä½•æ¥æºçš„ä¸»æœºè®¿é—®
 //    });
 //});
 
@@ -106,7 +106,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-#region ¼øÈ¨ÊÚÈ¨
+#region é‰´æƒæˆæƒ
 app.UseAuthentication();
 app.UseAuthorization();
 #endregion
@@ -116,7 +116,7 @@ app.UseAuthorization();
 //app.UseRouting();
 //app.UseAuthorization();
 //app.UseAuthentication();
-//ÅäÖÃCors
+//é…ç½®Cors
 //app.UseCors("cors");
 //app.UseEndpoints(endpoints =>
 //{
@@ -126,6 +126,9 @@ app.UseAuthorization();
 //this is master
 //This is git text;
 app.MapControllers();
-//Ê¹ÓÃ¿çÓò²ßÂÔ
+//ä½¿ç”¨è·¨åŸŸç­–ç•¥
 app.UseCors("CorsPolicy");
 app.Run();
+
+
+//github æµ‹è¯•
