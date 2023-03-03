@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlowerWebApi", "WebApi\FlowerWebApi.csproj", "{E701B633-BC3B-4B9D-93AF-32E8D311B90D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{39AD4466-ADCC-4A0D-9FDA-457CE0FECB3D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZhaoxiFlower.Model", "ZhaoxiFlower.Model\ZhaoxiFlower.Model.csproj", "{75E5EFE5-FDFE-4F7E-8BDC-79FF767696D7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZhaoxiFlower.Common", "ZhaoxiFlower.Common\ZhaoxiFlower.Common.csproj", "{5F2BAF5C-F2C5-45B2-B2E9-3AAFEBAE21D7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZhaoxiFlower.Service", "ZhaoxiFlower.Service\ZhaoxiFlower.Service.csproj", "{34454C11-9D0A-44CE-AEDA-4F3FFB3DBF06}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5F2BAF5C-F2C5-45B2-B2E9-3AAFEBAE21D7} = {5F2BAF5C-F2C5-45B2-B2E9-3AAFEBAE21D7}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E701B633-BC3B-4B9D-93AF-32E8D311B90D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E701B633-BC3B-4B9D-93AF-32E8D311B90D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E701B633-BC3B-4B9D-93AF-32E8D311B90D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E701B633-BC3B-4B9D-93AF-32E8D311B90D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E5EFE5-FDFE-4F7E-8BDC-79FF767696D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E5EFE5-FDFE-4F7E-8BDC-79FF767696D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E5EFE5-FDFE-4F7E-8BDC-79FF767696D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E5EFE5-FDFE-4F7E-8BDC-79FF767696D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F2BAF5C-F2C5-45B2-B2E9-3AAFEBAE21D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F2BAF5C-F2C5-45B2-B2E9-3AAFEBAE21D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F2BAF5C-F2C5-45B2-B2E9-3AAFEBAE21D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F2BAF5C-F2C5-45B2-B2E9-3AAFEBAE21D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34454C11-9D0A-44CE-AEDA-4F3FFB3DBF06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34454C11-9D0A-44CE-AEDA-4F3FFB3DBF06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34454C11-9D0A-44CE-AEDA-4F3FFB3DBF06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34454C11-9D0A-44CE-AEDA-4F3FFB3DBF06}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E62C6B8D-9A21-42C8-BFCB-CA20B1FD7560}
+	EndGlobalSection
+EndGlobal
