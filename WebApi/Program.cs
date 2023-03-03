@@ -120,8 +120,9 @@ app.UseAuthorization();
 //app.UseCors("cors");
 //app.UseEndpoints(endpoints =>
 //{
-//    endpoints.MapControllers();
+//   endpoints.MapControllers();
 //});
+
 //this is master
 //This is git text;
 app.MapControllers();
