@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZhaoxiFlower.Model.Entitys;
+using ZhaoxiFlower.Service.BingeWatch.Dot;
 using ZhaoxiFlower.Service.FileCard.Dot;
 using ZhaoxiFlower.Service.Flower.Dto;
 using ZhaoxiFlower.Service.User.Dto;
@@ -23,7 +24,7 @@ namespace ZhaoxiFlower.Service.Config
             CreateMap<Users, UserRes>();
             CreateMap<RegisterReq, Users>();
             CreateMap<FileCards, FileCardRes>();
-
+            CreateMap<BingeWatchings, BingeWatchRes>();
         }
     }
 } 

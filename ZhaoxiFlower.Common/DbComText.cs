@@ -452,7 +452,7 @@ namespace ZhaoxiFlower.Common
         pic= "https://m.ykimg.com/0584000062980D9713EB660937D7BF75?x-oss-process=image/resize,w_290/interlace,1/quality,Q_80"
 
                 },
-                    new FileCards()
+                new FileCards()
                     {
                         Id= 12,
         Title= "了不起！舞社",
@@ -462,9 +462,38 @@ namespace ZhaoxiFlower.Common
 
                     }
             };
+            List<BingeWatchings> bingeWatchings = new List<BingeWatchings>()
+            {
+                new BingeWatchings()
+                {
+                    Id= 1,
+                    Title= "继承者们",
+                    SubTitle = "高富帅遇灰姑娘擦爱火",
+                    pic ="https://m.ykimg.com/05830000629425FF2037DD08EFD0E016?x-oss-process=image/resize,w_290/interlace,1/quality,Q_80",
+                    BingeWatching = ""
+                },
+                new BingeWatchings()
+                {
+                    Id= 2,
+                    Title= "寒武纪",
+                    SubTitle = "侯明昊贺军翔倾情出演",
+                    pic ="https://m.ykimg.com/0583000058F5D08AADBA1FA0880E133D?x-oss-process=image/resize,w_290/interlace,1/quality,Q_80",
+                    BingeWatching = ""
+                },
+                new BingeWatchings()
+                {
+                    Id= 3,
+                    Title= "水怪2：黑木林",
+                    SubTitle = "民间传说水猴子惊悚来袭",
+                    pic ="https://liangcang-material.alicdn.com/prod/upload/8eb79232bfa248f0b12f4402c3d1a180.jpg?x-oss-process=image/resize,w_290/interlace,1/quality,Q_80",
+                    BingeWatching = ""
+                },
+            };
+
             //写入测试数据        
             db.Insertable(flowers).ExecuteCommand();
             db.Insertable(fileCards).ExecuteCommand();
+            db.Insertable(bingeWatchings).ExecuteCommand();
 
         }
     }

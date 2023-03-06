@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZhaoxiFlower.Service.Flower.Dto
+namespace ZhaoxiFlower.Service.BingeWatch.Dot
 {
-    public class FlowerReq
+    public class BingeWatchReq
     {
         public int Id { get; set; }
-        public int Type { get; set; }
     }
 }
